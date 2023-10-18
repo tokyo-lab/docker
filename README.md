@@ -48,6 +48,12 @@ docker container run --name mysql --publish 3306:3306 -d mysql -e MYSQL_RANDOM_R
 docker container ls
 ```
 
+OR
+
+```sh
+docker ps
+```
+
 ## Stop Container
 
 The docker stop command is used to stop one or more running containers. CONTAINER can be the container ID or name.
@@ -58,19 +64,47 @@ docker stop [OPTIONS] CONTAINER [CONTAINER...]
 
 ## Other common commands for containers
 
-list the containers that are currently running on your system
+list the containers that are currently running on your system:
 
 ```sh
 docker ps
 ```
 
-displays the running processes within a specific container
+displays the running processes within a specific container:
 
 ```sh
 docker top CONTAINER [ps OPTIONS]
 
 ```
 
+The command docker container top displays the running processes inside a specific container.CONTAINER can be the container ID or name:
+
+```sh
+docker container top CONTAINER
+
 ```
 
+The docker container inspect command provides detailed information on your container configuration, including the network settings, volume mappings, restart policies, resource limits, and more:
+
+```sh
+docker container inspect CONTAINER
+
+```
+
+This command is particularly useful when you're trying to understand the resource footprint of your running containers, or when you're diagnosing performance issues:
+
+```sh
+docker container stats CONTAINER
+
+```
+
+The docker container run command is used to create and run a container based on a specified image. The -it flag is actually two flags, -i and -t, used together.
+
+-i or --interactive: This flag keeps STDIN open even if not attached, which allows you to interact with the container.
+-t or --tty: This flag allocates a pseudo-TTY or terminal inside the new container.
+
+```sh
+docker container run -it IMAGE COMMAND [ARG...]
+
+i.e. docker container run -it ubuntu bash
 ```
