@@ -36,6 +36,12 @@ Start a mongo database. Lets call it mongoand its detached:
 docker run --name mongo -d mongo
 ```
 
+Start a mysql database and pass enviornment variable for root password:
+
+```sh
+docker container run --name mysql --publish 3306:3306 -d mysql -e MYSQL_RANDOM_ROOT_PASSWORD=yes
+```
+
 ## List running containers:
 
 ```sh
