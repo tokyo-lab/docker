@@ -164,3 +164,23 @@ Run a new container in detached mode using the official "nginx" image, names the
 ```sh
 docker container run -d --name new_nginx --network my_app_net nginx
 ```
+
+# Docker Images
+
+list images
+
+```sh
+docker image ls
+```
+
+To create a new image tag, nymhooman/nginx, that refers to the nginx image:
+
+```sh
+docker image tag nginx nymhooman/nginx
+```
+
+Push an image tagged as "nymhooman/nginx" from your local machine to a Docker registry, typically Docker Hub
+
+```sh
+docker image push nymhooman/nginx
+```
