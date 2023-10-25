@@ -79,3 +79,43 @@ docker build --file="mydockerfile" . -t custom:2
 ```sh
 docker build https://github.com/madflojo/automatron.git  -t automatron:1
 ```
+
+### Docker Housekeeping - Images
+
+Lists the Docker images that are locally stored on your machine:
+
+```sh
+docker image ls
+```
+
+Delete an image from your machine:
+
+```sh
+docker image rm [IMAGE ID]
+```
+
+Delete all image from your machine:
+
+```sh
+docker image rm $(docker image ls -aq)
+```
+
+Force delete all image from your machine:
+
+```sh
+docker image rm -f $(docker image ls -aq)
+```
+
+### Docker Housekeeping - Containers
+
+Lists the Docker containers that are locally stored on your machine:
+
+```sh
+docker container ls
+```
+
+Stop all containers from your machine:
+
+```sh
+docker container stop $(docker container ls -aq)
+```
