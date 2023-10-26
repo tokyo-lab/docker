@@ -119,3 +119,19 @@ Stop all containers from your machine:
 ```sh
 docker container stop $(docker container ls -aq)
 ```
+
+Run a container and pass a name 'mywebserv'.
+
+docker container run: This command tells Docker to run a new container.
+
+-d: This flag runs the container in detached mode, which means it runs in the background and doesn't tie up your terminal.
+
+-p 8080:80: This is a port mapping. It maps port 8080 on the host to port 80 on the container. This means if you access http://localhost:8080 on the host machine, you are essentially accessing the application running on port 80 inside the container.
+
+--name=mywebserv: This names the container mywebserv for easier reference. Without this, Docker would assign a random name.
+
+challenge:2: This is the image you're using to create the container. It's named challenge and tagged with 2.
+
+```sh
+docker container run -d -p 8080:80 --name=mywebserv challenge:2
+```
