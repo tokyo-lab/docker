@@ -161,3 +161,27 @@ docker container exec: This command allows you to execute a command inside a run
 ```sh
 docker container exec -it 7daa0a6d3512 /bin/bash
 ```
+
+# Publish an image to Docker Hub Repository
+
+Go to docker hub at https://hub.docker.com/, log in and create a repository.
+
+Make sure the image you are trying to push is built and tagged.
+
+To build an image
+
+```sh
+docker image build . -t port:1
+```
+
+To tag an image
+
+```sh
+docker tag port:1 nymhooman/mywebserver:latest
+```
+
+To push the image to the repository
+
+```sh
+docker image push nymhooman/mywebserver:latest
+```
