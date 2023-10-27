@@ -135,3 +135,29 @@ challenge:2: This is the image you're using to create the container. It's named 
 ```sh
 docker container run -d -p 8080:80 --name=mywebserv challenge:2
 ```
+
+# Volume Mount
+
+Volume mapping lets you maps a directory from your host machine to a directory inside the Docker container
+
+```sh
+docker container run -p 8080:80 -v /Users/michaelmena/Documents/purple.nosync/docker/fast-track-course/website:/usr/local/apache2/htdocs httpd:2.4
+```
+
+# Interacting With a Running Container
+
+The docker container exec command, which is a powerful tool for interacting with a running container. Let's break down the command:
+
+docker container exec: This command allows you to execute a command inside a running Docker container.
+
+-it: These are two combined flags:
+
+-i: This stands for "interactive", which means it keeps STDIN open even if not attached. This allows you to interact with the command you run (for instance, type commands into the shell).
+-t: This stands for "tty", which allocates a pseudo-TTY. This essentially makes the command run in a terminal-like mode, so you'll see a shell prompt and can interact with it like you would with a terminal.
+7daa0a6d3512: This is the container ID (or it can be a container name) of the running Docker container you want to interact with. Docker containers have unique IDs, and you can usually use the first few characters (as you have done) to specify which container you're referring to, as long as it's unique among your running containers.
+
+/bin/bash: This is the command you want to execute inside the container. In this case, you're asking to run the Bash shell. By doing this, you're essentially opening a terminal session inside the container, which lets you inspect its file system, run commands, etc.
+
+```sh
+docker container exec -it 7daa0a6d3512 /bin/bash
+```
