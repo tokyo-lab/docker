@@ -174,7 +174,7 @@ To build an image
 docker image build . -t port:1
 ```
 
-To tag an image
+To tag an image. The command below is intended to tag a Docker image with the name 'port' and the tag '1' to a new tag, 'latest', within the repository 'nymhooman/mywebserver'.
 
 ```sh
 docker tag port:1 nymhooman/mywebserver:latest
@@ -184,4 +184,10 @@ To push the image to the repository
 
 ```sh
 docker image push nymhooman/mywebserver:latest
+```
+
+To pull the image from the repository
+
+```sh
+docker image pull nymhooman/mywebserver:latest
 ```
